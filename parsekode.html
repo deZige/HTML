@@ -1,0 +1,88 @@
+<html>
+     <head>
+         <meta content="deZige Parse Code" name="description">
+         <meta charset="utf-8">
+         <link href="http://dezige-in.blogspot.com/favicon.ico" rel="icon" type="image/x-icon">
+         <title>Parse Kode</title>
+        <style type="text/css">
+		    * {
+                padding: 0;
+                margin: 0;
+                outline: 0;                                
+            }
+            body {
+                background: #888 url(https://cdn.rawgit.com/deZige/Gambar/master/notrans.png)no-repeat 50% 80%;background-size:180px 180px;
+                padding: 20px;               
+            }
+            #ruangparse {
+		    	width: 100%;
+                height: 150px;
+                background:#ccc url(https://cdn.rawgit.com/deZige/Gambar/master/notrans.png)no-repeat 95% 95%;background-size:50px 50px;
+                color: black;
+                padding: 10px;
+                border-radius: 5px;
+                box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.5);
+                margin:0 auto;
+                border: 1px solid #888;
+            }
+            #ruangparse:focus {
+                background:#ddd url(https://cdn.rawgit.com/deZige/Gambar/master/notrans.png)no-repeat 95% 95%;background-size:50px 50px;              
+		    }
+            button {
+                color: #ccc;
+                cursor: pointer;
+                padding: 5px 0;
+                border-radius: 3px;
+                display: inline-block;
+                border: 1px solid #8c8c8c;
+                text-align: center;
+                width: 100px;
+                font: bold 15px Arial, Helvetica, sans-serif;
+                box-shadow: inset 0px 1px 0px 0px #c9c9c9;
+                background-image: linear-gradient(bottom, #787678 28%, #9C9C9C 82%);
+                background-image: -o-linear-gradient(bottom, #787678 28%, #9C9C9C 82%);
+                background-image: -moz-linear-gradient(bottom, #787678 28%, #9C9C9C 82%);
+                background-image: -webkit-linear-gradient(bottom, #787678 28%, #9C9C9C 82%);
+                background-image: -ms-linear-gradient(bottom, #787678 28%, #9C9C9C 82%);
+            }
+            button:active {
+                box-shadow: 0px 1px 0px 0px #999;
+                text-shadow: 0px 1px 0px #000;
+            }
+            #button {  
+                margin: 0 auto;
+                padding: 10px;
+                text-align: center;
+				border-radius: 5px;
+            }
+        </style>
+    </head>
+    
+    <body>
+		
+        <textarea id="ruangparse"placeholder="Masukan kode lalu klik PARSE"></textarea>
+        <div id="button">
+            <button onclick="konversi();">Parse</button>
+            <button onclick="hapus();">Hapus</button>
+        </div>
+<script type="text/javascript">
+function hapus() {
+    var wtarea = document.getElementById('ruangparse');
+    wtarea.value = '';
+}
+function konversi() {
+    var ctarea = document.getElementById('ruangparse'),
+        cv = ctarea.value;
+    cv = cv.replace(/&/g, "&amp;");
+    cv = cv.replace(/'/g, "&#039;");
+    cv = cv.replace(/"/g, "&quot;");
+    cv = cv.replace(/</g, "&lt;");
+    cv = cv.replace(/>/g, "&gt;");
+    ctarea.value = cv;
+    ctarea.focus();
+    ctarea.select();
+};
+</script>
+    </body>
+
+</html>
